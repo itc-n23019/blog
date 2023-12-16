@@ -1,16 +1,15 @@
+import Header from '../compornents/header.js'
+import Hero from '../compornents/hero.js'
+import Footer from '../compornents/footer.js'
 const Home = () => {
   return (
     <>
-      <header>HEADER</header>
+      <Header />
       <main>
-        <div>
-          <h1>CUBE</h1>
-          <p>アウトプットするサイト</p>
-        </div>
+        <Hero />
       </main>
-      <footer>FOOTER</footer>
+      <Footer />
     </>
   )
 }
 export default Home
-
