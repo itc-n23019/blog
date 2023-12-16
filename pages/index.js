@@ -1,15 +1,15 @@
-import Header from '../compornents/header.js'
-import Hero from '../compornents/hero.js'
-import Footer from '../compornents/footer.js'
+import Layout from 'compornents/layout';
+import Hero from 'compornents/hero';
+
 const Home = () => {
   return (
     <>
-      <Header />
-      <main>
+      <Layout>
         <Hero />
-      </main>
-      <Footer />
+      </Layout>
     </>
-  )
-}
-export default Home
+  );
+};
+
+export default Home;
+
