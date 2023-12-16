@@ -3,7 +3,11 @@ import Hero from 'compornents/hero';
 const Home = () => {
   return (
     <>
-        <Hero />
+        <Hero 
+	  title="CUBE"
+	  subtitlte="アウトプットしていくサイト"
+imageOn
+	  />
     </>
   );
 };

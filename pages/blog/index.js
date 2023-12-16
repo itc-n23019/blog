@@ -3,7 +3,10 @@ import Hero from 'compornents/hero';
 const Blog = () => {
   return (
     <>
-        <Hero />
+        <Hero 
+	  title="blog"
+	  subtitle="Recent Posts"
+	  />
     </>
   );
 };

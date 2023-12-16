@@ -3,7 +3,10 @@ import Hero from 'compornents/hero'
 const About = () => {
   return (
     <>
-      <Hero />
+      <Hero
+	  title="About"
+	  subtitle="About development activities"
+	  />
     </>
   )
 }

@@ -1,9 +1,12 @@
-const Hero = () => {
+const Hero = ({ title, subtitle, imageOn = false }) => {
   return (
     <div>
-      <h1>CUBE</h1>
-      <p>アウトプットするサイト</p>
-    </div>
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
+	  {imageOn && <figure> [image] </figure>}
+	  </div>
   )
 }
+
 export default Hero
+
