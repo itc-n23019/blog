@@ -1,4 +1,6 @@
+import Logo from 'compornents/logo'
+
 const Footer = () => {
-  return <footer>FOOTER</footer>
+  return <footer><Logo /></footer>
 }
 export default Footer
