@@ -1,11 +1,11 @@
-import Hero from 'compornents/hero';
+import Hero from 'compornents/hero'
 
 const Home = () => {
   return (
     <>
         <Hero 
 	  title="CUBE"
-	  subtitlte="アウトプットしていくサイト"
+	  subtitle="アウトプットしていくサイト"
 imageOn
 	  />
     </>
