@@ -1,13 +1,16 @@
+import Container from 'compornents/contaiiner'
 import Hero from 'compornents/hero'
 
 const Home = () => {
   return (
     <>
-        <Hero 
+<container>
+	  <Hero 
 	  title="CUBE"
 	  subtitle="アウトプットしていくサイト"
 imageOn
 	  />
+	  </Container>
     </>
   );
 };
