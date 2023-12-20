@@ -1,4 +1,4 @@
-import Container from 'compornents/contaiiner'
+import Container from 'compornents/container'
 import Hero from 'compornents/hero';
 
 const Blog = () => {

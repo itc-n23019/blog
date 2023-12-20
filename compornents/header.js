@@ -1,4 +1,4 @@
-import Container from 'compornents/contaiiner'
+import Container from 'compornents/container'
 import Logo from 'compornents/logo'
 import Nav from 'compornents/nav'
 import styles from 'styles/header.module.css'

@@ -1,4 +1,4 @@
-import Container from 'compornents/contaiiner'
+import Container from 'compornents/container'
 import Logo from 'compornents/logo'
 import styles from 'styles/footer.module.css'
 

@@ -8,4 +8,4 @@ const Container = ({ children, large = false }) => {
   )
 }
 
-export default Logo
+export default Container
