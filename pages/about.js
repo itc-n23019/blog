@@ -2,11 +2,15 @@ import Container from 'compornents/container'
 import Hero from 'compornents/hero'
 import PostBody from 'compornents/post-body"'
 import Contact from 'compornents/Contact'
+import { Twocolumn, TwocolumnMain, TwocolumnSidebar } from 'compornents/two-column'
+
 const About = () => {
   return (
     <>
       <Container>
         <Hero title='About' subtitle='About development activities' />
+	  <Twocolumn>
+	  <TwocolumnMain>
         <PostBody>
           <p>
             Cubeが得意とする分野はモノづくりです。3次元から2次元の造形、プログラミングやデザインなど、さまざまな技術を組み合わせることによって社会や環境と結びつけるクリエイティブを提案し続けています。
@@ -33,7 +37,11 @@ const About = () => {
             公開リポジトリを活用すると、全世界のどこからでもアクセスし、開発者が関連するプロジェクトのタスクを利用することができます。
           </p>
         </PostBody>
-        <Contact />
+	  </TwocolumnMain>
+	  <TwocolumnSidebar>
+	  <Contact />
+	  </TwocolumnSidebar>
+	  </Twocolumn>
       </Container>
     </>
   )
