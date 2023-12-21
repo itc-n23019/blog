@@ -1,6 +1,7 @@
 import Container from 'compornents/container'
 import Hero from 'compornents/hero'
 import PostBody from 'compornents/post-body"'
+import Contact from 'compornents/Contact'
 const About = () => {
   return (
     <>
@@ -32,6 +33,7 @@ const About = () => {
             公開リポジトリを活用すると、全世界のどこからでもアクセスし、開発者が関連するプロジェクトのタスクを利用することができます。
           </p>
         </PostBody>
+        <Contact />
       </Container>
     </>
   )
