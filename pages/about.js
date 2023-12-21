@@ -1,14 +1,25 @@
 import Container from 'compornents/container'
 import Hero from 'compornents/hero'
-import PostBody from 'compornents/post-body"'
-import Contact from 'compornents/Contact'
+import PostBody from 'compornents/post-body'
+import Contact from 'compornents/contact'
 import { Twocolumn, TwocolumnMain, TwocolumnSidebar } from 'compornents/two-column'
-
+import Image from 'next/image'
+import eyecatch from 'images/about.jpg'
 const About = () => {
   return (
     <>
       <Container>
         <Hero title='About' subtitle='About development activities' />
+
+	   <Image
+  src={eyecatch}
+  alt=''
+ layout= "responsive" 
+  sizes='(min-width:1152px) 1152px, 100vw' 
+  priority
+  placeholder='blur'   
+  
+/>
 	  <Twocolumn>
 	  <TwocolumnMain>
         <PostBody>
