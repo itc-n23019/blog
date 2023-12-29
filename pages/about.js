@@ -4,12 +4,19 @@ import PostBody from 'compornents/post-body'
 import Contact from 'compornents/contact'
 import { Twocolumn, TwocolumnMain, TwocolumnSidebar } from 'compornents/two-column'
 import Image from 'next/image'
+import Meta from 'compornents/meta'
 import eyecatch from 'images/about.jpg'
 const About = () => {
   return (
     <>
       <Container>
-        <Hero title='About' subtitle='About development activities' />
+       <Meta  pageTitle="アバウト"
+        pageDesc="About development activities"
+        pageImg={eyecatch.src}
+        pageImgW={eyecatch.width}
+        pageImgH={eyecatch.height}
+/> 
+	  <Hero title='About' subtitle='About development activities' />
 
 	   <Image
   src={eyecatch}
