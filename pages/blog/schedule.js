@@ -3,6 +3,7 @@ import Container from 'compornents/container'
 import PostHeader from 'compornents/post-header'
 import PostBody from 'compornents/post-body'
 import ConvertBody from 'compornents/convert-body'
+import PostCategories from 'compornents/post-categories'
 
 import {
   TwoColumn,
@@ -35,7 +36,9 @@ const Schedule = ({ title, publish, content, eyecatch, categories }) => {
    
 	  </PostBody>
           </TwoColumnMain>
-          <TwoColumnSidebar></TwoColumnSidebar>
+          <TwoColumnSidebar>
+	              <PostCategories categories={categories} />
+</TwoColumnSidebar>
         </TwoColumn>
       </article>
     </Container>
