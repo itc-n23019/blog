@@ -1,34 +1,51 @@
-import { getPostBySlug } from '../../lib/api';
-import Container from 'compornents/container';
-import PostHeader from 'compornents/post-header';
-import Image from 'next/image';
+import { getPostBySlug } from '../../lib/api'
+import Container from 'compornents/container'
+import PostHeader from 'compornents/post-header'
+import PostBody from 'compornents/post-body'
+import ConvertBody from 'compornents/convert-body'
+
+import {
+  TwoColumn,
+  TwoColumnMain,
+  TwoColumnSidebar
+} from 'compornents/two-column'
+
+import Image from 'next/image'
 
 const Schedule = ({ title, publish, content, eyecatch, categories }) => {
   return (
     <Container>
       <article>
-        <PostHeader title={title} subtitle="Blog Article" publish={publish} />
+        <PostHeader title={title} subtitle='Blog Article' publish={publish} />
         <figure>
-        <Image
+          <Image
             src={eyecatch.url}
-            alt=""
-            layout="responsive"
+            alt=''
+            layout='responsive'
             width={eyecatch.width}
             height={eyecatch.height}
-            sizes="(min-width: 1152px) 1152px, 100vw"
+            sizes='(min-width: 1152px) 1152px, 100vw'
             priority
           />
- 
-	  </figure>
+        </figure>
+        <TwoColumn>
+          <TwoColumnMain>
+            <PostBody>
+                       <ConvertBody contentHTML={content} />
+   
+	  </PostBody>
+          </TwoColumnMain>
+          <TwoColumnSidebar></TwoColumnSidebar>
+        </TwoColumn>
       </article>
     </Container>
-  );
-};
+  )
+}
 
 const getStaticProps = async () => {
-  const slug = 'schedule';
+  const slug = 'schedule'
 
-  const post = await getPostBySlug(slug);
+  const post = await getPostBySlug(slug)
 
   return {
     props: {
@@ -36,10 +53,9 @@ const getStaticProps = async () => {
       publish: post.publishDate,
       content: post.content,
       eyecatch: post.eyecatch,
-      categories: post.categories,
-    },
-  };
-};
+      categories: post.categories
+    }
+  }
+}
 
-export { Schedule as default, getStaticProps };
-
+export { Schedule as default, getStaticProps }

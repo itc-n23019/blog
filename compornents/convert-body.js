@@ -7,15 +7,14 @@ const ConvertBody = ({ contentHTML }) => {
       if (node.name === 'img') {
         const { src, alt, width, height } = node.attribs
         return (
-       <Image
-  objectFit="cover"
-  objectPosition="center"
-  src={src}
-  width={width}
-  height={height}
-  alt={alt}
-  sizes="(min-width: 768px) 768px, 100vw"
-/>
+<Image
+            layout="responsive"
+            src={src}
+            width={width}
+            height={height}
+            alt={alt}
+            sizes="(min-width: 768px) 768px, 100vw"
+          />
  
 	)
       }
