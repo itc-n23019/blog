@@ -8,9 +8,9 @@ import { extractText } from 'lib/extract-text'
 import Meta from 'compornents/meta'
 
 import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar
+  Twocolumn,
+  TwocolumnMain,
+  TwocolumnSidebar
 } from 'compornents/two-column'
 
 import Image from 'next/image'
@@ -46,23 +46,23 @@ const Schedule = ({
             priority
           />
         </figure>
-        <TwoColumn>
-          <TwoColumnMain>
+        <Twocolumn>
+          <TwocolumnMain>
             <PostBody>
               <ConvertBody contentHTML={content} />
             </PostBody>
-          </TwoColumnMain>
-          <TwoColumnSidebar>
+          </TwocolumnMain>
+          <TwocolumnSidebar>
             <PostCategories categories={categories} />
-          </TwoColumnSidebar>
-        </TwoColumn>
+          </TwocolumnSidebar>
+        </Twocolumn>
       </article>
     </Container>
   )
 }
 
 const getStaticProps = async () => {
-  const slug = 'schedule'
+  const slug = 'micro'
 
   const post = await getPostBySlug(slug)
 
