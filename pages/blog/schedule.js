@@ -4,6 +4,8 @@ import PostHeader from 'compornents/post-header'
 import PostBody from 'compornents/post-body'
 import ConvertBody from 'compornents/convert-body'
 import PostCategories from 'compornents/post-categories'
+import { extractText } from 'lib/extract-text'
+import Meta from 'compornents/meta'
 
 import {
   TwoColumn,
@@ -13,9 +15,24 @@ import {
 
 import Image from 'next/image'
 
-const Schedule = ({ title, publish, content, eyecatch, categories }) => {
+const Schedule = ({
+  title,
+  publish,
+  content,
+  eyecatch,
+  categories,
+  description
+}) => {
   return (
     <Container>
+      <Meta
+        pageTitle={title}
+        pageDesc={description}
+        pageImg={eyecatch.url}
+        pageImgW={eyecatch.width}
+        pageImgH={eyecatch.height}
+      />
+
       <article>
         <PostHeader title={title} subtitle='Blog Article' publish={publish} />
         <figure>
@@ -32,13 +49,12 @@ const Schedule = ({ title, publish, content, eyecatch, categories }) => {
         <TwoColumn>
           <TwoColumnMain>
             <PostBody>
-                       <ConvertBody contentHTML={content} />
-   
-	  </PostBody>
+              <ConvertBody contentHTML={content} />
+            </PostBody>
           </TwoColumnMain>
           <TwoColumnSidebar>
-	              <PostCategories categories={categories} />
-</TwoColumnSidebar>
+            <PostCategories categories={categories} />
+          </TwoColumnSidebar>
         </TwoColumn>
       </article>
     </Container>
@@ -50,13 +66,16 @@ const getStaticProps = async () => {
 
   const post = await getPostBySlug(slug)
 
+  const description = extractText(post.content)
+
   return {
     props: {
       title: post.title,
       publish: post.publishDate,
       content: post.content,
       eyecatch: post.eyecatch,
-      categories: post.categories
+      categories: post.categories,
+      description: description
     }
   }
 }
