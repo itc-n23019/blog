@@ -1,4 +1,4 @@
-import { getPostBySlug } from '../../lib/api'
+import { getPostBySlug,getAllSlugs } from 'lib/api'
 import Container from 'compornents/container'
 import PostHeader from 'compornents/post-header'
 import PostBody from 'compornents/post-body'
@@ -8,14 +8,16 @@ import { extractText } from 'lib/extract-text'
 import Meta from 'compornents/meta'
 
 import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar
+  Twocolumn,
+  TwocolumnMain,
+  TwocolumnSidebar
 } from 'compornents/two-column'
 
 import Image from 'next/image'
+import { eyecatchLocal } from 'lib/constants'
+import { getPlaiceholder } from 'plaiceholder'
 
-const Schedule = ({
+const Post = ({
   title,
   publish,
   content,
@@ -44,40 +46,57 @@ const Schedule = ({
             height={eyecatch.height}
             sizes='(min-width: 1152px) 1152px, 100vw'
             priority
-          />
+      placeholder="blur"
+            blurDataURL={eyecatch.blurDataURL}
+
+	  />
         </figure>
-        <TwoColumn>
-          <TwoColumnMain>
+        <Twocolumn>
+          <TwocolumnMain>
             <PostBody>
               <ConvertBody contentHTML={content} />
             </PostBody>
-          </TwoColumnMain>
-          <TwoColumnSidebar>
+          </TwocolumnMain>
+          <TwocolumnSidebar>
             <PostCategories categories={categories} />
-          </TwoColumnSidebar>
-        </TwoColumn>
+          </TwocolumnSidebar>
+        </Twocolumn>
       </article>
     </Container>
   )
 }
 
-const getStaticProps = async () => {
-  const slug = 'schedule'
+const getStaticPaths = async () => {
+  const allSlugs = await getAllSlugs();
+  return {
+    paths: allSlugs.map(({ slug }) => `/blog/${slug}`),
+    fallback: false,
+  };
+};
+
+const getStaticProps = async (context) => {
+  const slug =context.params.slug
+ 
 
   const post = await getPostBySlug(slug)
 
   const description = extractText(post.content)
+  const eyecatch = post.eyecatch ?? eyecatchLocal
+
+  const { base64 } = await getPlaiceholder(eyecatch.url)
+  eyecatch.blurDataURL = base64
+
 
   return {
     props: {
       title: post.title,
       publish: post.publishDate,
       content: post.content,
-      eyecatch: post.eyecatch,
+      eyecatch: eyecatch,
       categories: post.categories,
       description: description
     }
   }
 }
 
-export { Schedule as default, getStaticProps }
+export { Post as default, getStaticProps, getStaticPaths }
