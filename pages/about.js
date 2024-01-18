@@ -56,9 +56,10 @@ const About = () => {
           </p>
         </PostBody>
 	  </TwocolumnMain>
-	  <TwocolumnSidebar>
-	  <Contact />
-	  </TwocolumSidebar>
+<TwocolumnSidebar>
+  <Contact />
+</TwocolumnSidebar>
+
 	  </Twocolumn>
       </Container>
     </>
