@@ -1,4 +1,4 @@
-import { getPostBySlug } from '../../lib/api'
+import { getPostBySlug,getAllSlugs } from 'lib/api'
 import Container from 'compornents/container'
 import PostHeader from 'compornents/post-header'
 import PostBody from 'compornents/post-body'
@@ -17,7 +17,7 @@ import Image from 'next/image'
 import { eyecatchLocal } from 'lib/constants'
 import { getPlaiceholder } from 'plaiceholder'
 
-const Schedule = ({
+const Post = ({
   title,
   publish,
   content,
@@ -66,8 +66,17 @@ const Schedule = ({
   )
 }
 
-const getStaticProps = async () => {
-  const slug = 'micro'
+const getStaticPaths = async () => {
+  const allSlugs = await getAllSlugs();
+  return {
+    paths: allSlugs.map(({ slug }) => `/blog/${slug}`),
+    fallback: false,
+  };
+};
+
+const getStaticProps = async (context) => {
+  const slug =context.params.slug
+ 
 
   const post = await getPostBySlug(slug)
 
@@ -90,4 +99,4 @@ const getStaticProps = async () => {
   }
 }
 
-export { Schedule as default, getStaticProps }
+export { Post as default, getStaticProps, getStaticPaths }
