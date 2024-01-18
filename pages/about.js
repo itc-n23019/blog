@@ -2,7 +2,7 @@ import Container from 'compornents/container'
 import Hero from 'compornents/hero'
 import PostBody from 'compornents/post-body'
 import Contact from 'compornents/contact'
-import { TwoColumn, TwoColumnMain, TwoColumnSidebar } from 'compornents/two-column'
+import { Twocolumn, Twocolumnmain, Twocolumnsidebar } from 'compornents/two-column'
 import Image from 'next/image'
 import Meta from 'compornents/meta'
 import eyecatch from 'images/about.jpg'
@@ -55,11 +55,11 @@ const About = () => {
             公開リポジトリを活用すると、全世界のどこからでもアクセスし、開発者が関連するプロジェクトのタスクを利用することができます。
           </p>
         </PostBody>
-	  </TwoColumnMain>
-	  <TwoColumnSidebar>
+	  </Twocolumnmain>
+	  <Twocolumnsidebar>
 	  <Contact />
-	  </TwoColumnSidebar>
-	  </TwoColumn>
+	  </Twocolumnsidebar>
+	  </Twocolumn>
       </Container>
     </>
   )
